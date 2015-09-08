@@ -17,7 +17,7 @@ maxPals = maximum . justPals
 crossProdSeq :: [Int] -> [Int] -> [Int]
 crossProdSeq xs ys 
   | length xs == 0 || length ys == 0 = []
-	| otherwise = multAll (head ys) xs ++ crossProdSeq (tail ys) xs
+  | otherwise = multAll (head ys) xs ++ crossProdSeq (tail ys) xs
 
 multAll :: Int -> [Int] -> [Int]
 multAll y xs = map (* y) xs
