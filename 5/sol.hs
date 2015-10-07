@@ -33,3 +33,5 @@ encodeTable xs = IntMap.fromListWith (+) $ map (\x -> (x, 1)) xs
 -- Join factored IntMaps tables together, using the max of each value.
 joinTables :: [IntMap.IntMap Integer] -> IntMap.IntMap Integer
 joinTables = foldl (IntMap.unionWith max) IntMap.empty
+
+main = print $ allFactors [1..20]
