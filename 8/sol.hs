@@ -2,12 +2,13 @@ takeStep :: Int -> [a] -> [a]
 takeStep _ [] = []
 takeStep n (x:xs) = x : takeStep n (drop (n-1) xs)
 
-slice :: Int -> Int -> [a] -> [a]
-slice start stop = takeStep 1 . take (stop - start) . drop start
+slice :: Int -> [a] -> [a]
+slice [] = [[]]
+slice (x:xs) = [x:(take 7 xs)] ++ slice xs
 
 -- from large list, produce sets which are each N long
 getBestProd :: Int -> [Int] -> Int
-getBestProd n as = bestProduct $ [slice start (start+n) as | <- ]
+getBestProd as = bestProduct $ slice as
 
 
 bestProduct :: [[Int]] -> Int
